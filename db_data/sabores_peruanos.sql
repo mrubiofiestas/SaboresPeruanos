@@ -83,9 +83,7 @@ INSERT INTO `platos` (`nombre_plato`, `tipo`, `precio`) VALUES
 
 INSERT INTO `roles` (`id_rol`, `tipo_rol`) VALUES
 (1, 'Administrador'),
-(2, 'Usuario'),
-(3, 'Repartidor');
-
+(2, 'Usuario');
 
 INSERT INTO `usuario` (`email`, `nombre`, `apellidos`, `direccion`, `clave`, `id_rol`) VALUES
 ('mrubiofiestas@gmail.com', 'Milagros', 'Rubio', 'calle mar y sierra', 'morita01', 2);

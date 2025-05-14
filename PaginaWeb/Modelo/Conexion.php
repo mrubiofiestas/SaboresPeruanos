@@ -1,13 +1,15 @@
 <?php
 
-class Conexion {
+class Conexion
+{
     private $mibd;
     private $host;
     private $usuario;
     private $clave;
     private $conexion;
 
-    public function __construct($mibd, $host, $usuario, $clave = '') {
+    public function __construct($mibd, $host, $usuario, $clave)
+    {
         $this->mibd = $mibd;
         $this->host = $host;
         $this->usuario = $usuario;

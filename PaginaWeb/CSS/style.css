@@ -13,6 +13,7 @@
 
 /*CUERPO EN GENERAL*/
 body {
+    background-image: url(./img/fondo_peru.png);
     font-family: 'Poppins', sans-serif;
     background-color: var(--negro-suave);
     color: var(--beige-claro);
@@ -91,7 +92,6 @@ section {
 }
 
 .historia,
-.duena,
 .ubicacion {
     background-color: #2a2a2a;
     margin-bottom: 1rem;
@@ -114,29 +114,7 @@ section p {
     color: var(--beige-claro);
 }
 
-.duena {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 2rem;
-    padding: 2rem;
-    flex-wrap: wrap; /* para que sea responsive */
-  }
-  
-  .duena-texto {
-    flex: 1;
-    color: var(--beige-claro);
-  }
-  
-  .duena img {
-    width: 300px;
-    height: 230px;
-    object-fit: cover;
-    border-radius: 10px;
-  }
-  
-
-  .ubicacion {
+.ubicacion {
     background-color: var(--negro-suave);
     padding: 2rem;
     display: flex;
@@ -144,25 +122,25 @@ section p {
     align-items: center;
     text-align: center;
     gap: 1.5rem;
-  }
-  
-  .ubicacion-texto h2 {
+}
+
+.ubicacion-texto h2 {
     font-size: 2rem;
     color: var(--beige-claro);
     margin-bottom: 0.5rem;
-  }
-  
-  .ubicacion-texto p {
+}
+
+.ubicacion-texto p {
     font-size: 1.1rem;
     max-width: 600px;
     color: var(--beige-claro);
-  }
-  
-  .ubicacion-mapa {
+}
+
+.ubicacion-mapa {
     width: 100%;
     max-width: 800px;
-  }
-  
+}
+
 
 .galeria-inicio .fila-platos {
     display: flex;
@@ -233,27 +211,6 @@ footer p {
 .plato h3 {
     font-size: 1.4rem;
     margin-bottom: 0.5rem;
-}
-
-/* ----------- GALERÍA ----------- */
-.galeria-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
-    padding: 2rem 0;
-}
-
-.galeria-grid img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
-    transition: transform 0.3s ease;
-}
-
-.galeria-grid img:hover {
-    transform: scale(1.05);
 }
 
 /* ----------- CONTACTO ----------- */

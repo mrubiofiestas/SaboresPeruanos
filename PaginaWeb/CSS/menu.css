@@ -1,0 +1,63 @@
+:root {
+    --rojo-andino: #8c1f1f;
+    --beige-claro: #e8dbc0;
+    --rojo-oscuro: #5c1010;
+    --negro-suave: #1a1a1a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*CUERPO EN GENERAL*/
+body {
+    background-image: url(./img/fondo_peru.png);
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--negro-suave);
+    color: var(--beige-claro);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/*CABECERA-BARRA DE NAVEGACION NAV- LOGO*/
+.logo {
+    width: 150px;
+    margin: 0 1rem 1rem 1rem;
+    float: left;
+}
+
+header {
+    background-color: var(--rojo-andino);
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+nav {
+    margin-top: 0;
+}
+
+nav a {
+    margin: 0 1rem;
+    color: var(--beige-claro);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+/*PIE DE PAGINA*/
+footer {
+    background-color: var(--rojo-oscuro);
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+
+footer p {
+    margin-top: 10px;
+}
