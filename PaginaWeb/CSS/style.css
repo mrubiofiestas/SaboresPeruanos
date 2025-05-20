@@ -49,6 +49,43 @@ nav a {
     font-weight: bold;
 }
 
+/*Aqui empieza el css del perfil de usuario*/
+.perfil-usuario {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    color: white;
+    padding: 0 10px;
+}
+
+.menu-perfil {
+    display: none;
+    position: absolute;
+    background-color: white;
+    color: black;
+    list-style: none;
+    right: 0;
+    margin: 0;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 100;
+}
+
+.perfil-usuario:hover .menu-perfil {
+    display: block;
+}
+
+.menu-perfil li {
+    padding: 5px 10px;
+}
+
+.menu-perfil li a {
+    text-decoration: none;
+    color: black;
+}
+
+
 /*SECCIONES*/
 main {
     flex: 1;

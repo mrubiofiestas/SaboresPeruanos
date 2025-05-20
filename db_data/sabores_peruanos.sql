@@ -2,10 +2,15 @@ CREATE DATABASE IF NOT EXISTS sabores_peruanos;
 USE sabores_peruanos;
 
 CREATE TABLE roles (
-  id_rol INT(11) NOT NULL AUTO_INCREMENT,
+  id_rol INT NOT NULL,
   tipo_rol VARCHAR(30) NOT NULL,
   PRIMARY KEY (id_rol)
 );
+
+INSERT INTO `roles` (`id_rol`, `tipo_rol`) VALUES
+(1, 'Administrador'),
+(2, 'Usuario');
+(3, 'Invitado');
 
 CREATE TABLE usuario (
   email VARCHAR(50) NOT NULL,
@@ -13,10 +18,12 @@ CREATE TABLE usuario (
   apellidos VARCHAR(50) NOT NULL,
   direccion VARCHAR(100) DEFAULT NULL,
   clave VARCHAR(255) NOT NULL,
-  id_rol INT(11) DEFAULT NULL,
+  id_rol INT DEFAULT 2,
   PRIMARY KEY (email),
   FOREIGN KEY (id_rol) REFERENCES roles (id_rol) ON DELETE SET NULL ON UPDATE CASCADE
 );
+
+
 
 CREATE TABLE platos (
   nombre_plato VARCHAR(50) NOT NULL,
@@ -81,9 +88,6 @@ INSERT INTO `platos` (`nombre_plato`, `tipo`, `precio`) VALUES
 ('Tallarines a la Huancaína', 'Pasta', 8.00),
 ('Tequeños', 'Entrada', 5.00);
 
-INSERT INTO `roles` (`id_rol`, `tipo_rol`) VALUES
-(1, 'Administrador'),
-(2, 'Usuario');
 
 INSERT INTO `usuario` (`email`, `nombre`, `apellidos`, `direccion`, `clave`, `id_rol`) VALUES
 ('mrubiofiestas@gmail.com', 'Milagros', 'Rubio', 'calle mar y sierra', 'morita01', 2);

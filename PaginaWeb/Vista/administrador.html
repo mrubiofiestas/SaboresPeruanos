@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="../CSS/administrador.css">
+</head>
+
+<body>
+    <header>
+        <img src="../img/logo_SP.png" alt="logo" class="logo">
+        <h1>Area Admin</h1>
+    </header>
+
+    <nav>
+        <button onclick="location.href='agregar_producto.html'">Agregar Producto</button>
+        <button onclick="location.href='editar_producto.html'">Editar Producto</button>
+        <button onclick="location.href='eliminar_producto.html'">Eliminar Producto</button>
+    </nav>
+
+    <br>
+    
+    <section>
+        <h2>Lista de Productos</h2>
+        <table border="1">
+            <tr>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Precio</th>
+                <th>Acciones</th>
+            </tr>
+            <tr>
+                <td>Ejemplo Producto</td>
+                <td>Bebida refrescante</td>
+                <td>5.00 €</td>
+                <td>
+                    <button onclick="location.href='editar_producto.html'">Editar</button>
+                    <button onclick="confirm('¿Eliminar producto?')">Eliminar</button>
+                </td>
+            </tr>
+        </table>
+    </section>
+    <footer>
+        <p>&copy; 2025 Bar Administrador</p>
+    </footer>
+
+</body>
