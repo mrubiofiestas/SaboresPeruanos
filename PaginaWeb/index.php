@@ -27,6 +27,10 @@ $boton_carrito = $logueado ? '<button class="btn-agregar">Agregar al carrito</bu
             <a href="./Vista/menu.html">Menú</a>
             <a href="./Vista/contacto.html">Contacto</a>
 
+            <?php if ($logueado): ?>
+                <a href="./Vista/carrito.php">Carrito</a>
+            <?php endif; ?>
+            
             <?php if (!$logueado): ?>
                 <a href="./Vista/login.html">Login</a>
             <?php else: ?>
@@ -39,9 +43,7 @@ $boton_carrito = $logueado ? '<button class="btn-agregar">Agregar al carrito</bu
                 </div>
             <?php endif; ?>
 
-            <?php if ($logueado): ?>
-                <a href="./Vista/carrito.php">Carrito</a>
-            <?php endif; ?>
+            
         </nav>
     </header>
 
@@ -57,19 +59,19 @@ $boton_carrito = $logueado ? '<button class="btn-agregar">Agregar al carrito</bu
             <div class="fila-platos">
                 <div>
                     <img src="img/ceviche.jpg" alt="Ceviche">
-                    <?= $boton_carrito ?>
+                    <h3>Ceviche</h3>
                 </div>
                 <div>
                     <img src="img/lomo_a_la_huancaina.jpg" alt="Lomo a la Huancaína">
-                    <?= $boton_carrito ?>
+                    <h3>Lomo a la Huancaína</h3>
                 </div>
                 <div>
                     <img src="img/trio_marino.jpg" alt="Trío Marino">
-                    <?= $boton_carrito ?>
+                    <h3>Trio Marino</h3>
                 </div>
                 <div>
                     <img src="img/pollo_a_la_brasa.jpg" alt="Pollo a la brasa">
-                    <?= $boton_carrito ?>
+                    <h3>Pollo a la brasa</h3>
                 </div>
             </div>
             <a href="./Vista/galeria.html" class="boton-vermenu">Ver más</a>

@@ -13,7 +13,7 @@
 
 /*CUERPO EN GENERAL*/
 body {
-    background-image: url(./img/fondo_peru.png);
+    background-image: url(../img/fondo_peru.png);
     font-family: 'Poppins', sans-serif;
     background-color: var(--negro-suave);
     color: var(--beige-claro);
