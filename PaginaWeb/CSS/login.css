@@ -1,0 +1,48 @@
+:root {
+  --rojo-andino: #8c1f1f;
+  --beige-claro: #e8dbc0;
+  --rojo-oscuro: #5c1010;
+  --negro-suave: #1a1a1a;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+/*CUERPO EN GENERAL*/
+body {
+  background-image: url(../img/fondo_peru.png);
+  font-family: "Poppins", sans-serif;
+  background-color: var(--negro-suave);
+  color: var(--beige-claro);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+form {
+    margin: 30px;
+}
+#formulario-completo button {
+    justify-content: center;
+}
+
+#formulario-completo {
+    background-color: #8c1f1f;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px;
+    margin: auto;
+    border-radius: 20px;
+    align-items: center;
+}
+#formulario-completo img {
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

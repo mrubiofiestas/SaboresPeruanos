@@ -1,83 +1,92 @@
 :root {
-    --rojo-andino: #8c1f1f;
-    --beige-claro: #e8dbc0;
-    --rojo-oscuro: #5c1010;
-    --negro-suave: #1a1a1a;
+  --rojo-andino: #8c1f1f;
+  --beige-claro: #e8dbc0;
+  --rojo-oscuro: #5c1010;
+  --negro-suave: #1a1a1a;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 /*CUERPO EN GENERAL*/
 body {
-    background-image: url(../img/fondo_peru.png);
-    font-family: 'Poppins', sans-serif;
-    background-color: var(--negro-suave);
-    color: var(--beige-claro);
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+  background-image: url(../img/fondo_peru.png);
+  font-family: "Poppins", sans-serif;
+  background-color: var(--negro-suave);
+  color: var(--beige-claro);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 /*CABECERA-BARRA DE NAVEGACION NAV- LOGO*/
 .logo {
-    width: 150px;
-    margin: 0 1rem 1rem 1rem;
-    float: left;
+  width: 150px;
+  margin: 0 1rem 1rem 1rem;
+  float: left;
 }
 
 header {
-    background-color: var(--rojo-andino);
-    padding: 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
+  background-color: var(--rojo-andino);
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
-nav {
-    margin-top: 0;
+#menu-nav a {
+  margin-top: 0;
+  margin: 0 1rem;
+  color: var(--beige-claro);
+  text-decoration: none;
+  font-weight: bold;
 }
 
-nav a {
-    margin: 0 1rem;
-    color: var(--beige-claro);
-    text-decoration: none;
-    font-weight: bold;
+#menu-nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.perfil-usuario {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
 }
 
 /*centro*/
 .galeria-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
-    padding: 2rem 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  padding: 2rem 0;
 }
 
 .galeria-grid img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
-    transition: transform 0.3s ease;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease;
 }
 
 .galeria-grid img:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 /*PIE DE PAGINA*/
 footer {
-    background-color: var(--rojo-oscuro);
-    color: white;
-    text-align: center;
-    padding: 1rem;
+  background-color: var(--rojo-oscuro);
+  color: white;
+  text-align: center;
+  padding: 1rem;
 }
 
 footer p {
-    margin-top: 10px;
+  margin-top: 10px;
 }

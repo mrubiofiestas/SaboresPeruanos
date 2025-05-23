@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && filter_has_var(INPUT_POST, 'iniciar
                         header("Location: /Vista/administrador.html");
                         break;
                     case "Usuario":
-                        header("Location: /index.php");
+                        header("Location: /index.html");
                         break;
                     case "Invitado":
                         header("Location: /Vista/repartidor.php");
