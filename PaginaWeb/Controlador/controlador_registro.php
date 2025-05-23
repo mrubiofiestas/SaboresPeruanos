@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && filter_has_var(INPUT_POST, 'registr
     $usuario = new Usuario($email, $nombre, $apellidos, $direccion, $clave_hashed, $id_rol);
 
     if ($usuario->crearUsuario()) {
-        header("Location: ../Vista/login.php?mensaje=Registro exitoso");
+        header("Location: /Vista/login.html?mensaje=Registro exitoso");
         exit();
     } else {
         echo "Error: No se pudo registrar el usuario. Puede que ya exista.";

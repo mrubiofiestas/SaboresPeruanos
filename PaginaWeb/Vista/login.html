@@ -17,6 +17,8 @@
     <link rel="stylesheet" href="../CSS/login.css" />
   </head>
 
+  <script src="../Javascript/validacion_login.js"></script>
+
   <body>
     <div id="formulario-completo">
       <img src="../img/0917dfda-716c-424b-b87c-bc3c42191654.png" alt="" />
@@ -39,23 +41,17 @@
             />
           </div>
         </div>
-        <div class="col-auto">
-          <div class="form-check">
-            <input
-              class="form-check-input"
-              type="checkbox"
-              id="autoSizingCheck"
-            />
-            <label class="form-check-label" for="autoSizingCheck">
-              Recuerdame
-            </label>
+        <div class="text-center mt-4">
+          <button type="submit" class="btn btn-secondary" name="iniciarSesion">
+            Entrar
+          </button>
+          <div class="mt-3">
+            <label>¿No tienes cuenta?</label><br />
+            <a href="./registro.html" class="btn btn-secondary mt-2"
+              >Registrate</a
+            >
           </div>
         </div>
-        <button type="submit" class="btn btn-secondary" name="iniciarSesion">
-          Entrar
-        </button>
-        <br><label for="text">¿No tienes cuenta?</label>
-        <br><a href="./registro.html" class="btn btn-secondary">Registrate</a>
       </form>
     </div>
   </body>
