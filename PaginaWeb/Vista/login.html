@@ -1,58 +1,46 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sabores Peruanos</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Poppins&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="../CSS/login.css" />
-  </head>
 
-  <script src="../Javascript/validacion_login.js"></script>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sabores Peruanos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Poppins&display=swap"
+    rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous" />
+  <link rel="stylesheet" href="../CSS/login.css" />
+</head>
 
-  <body>
-    <div id="formulario-completo">
-      <img src="../img/0917dfda-716c-424b-b87c-bc3c42191654.png" alt="" />
-      <h3>Inicio de sesión</h3>
-      <form method="POST" action="../Controlador/controlador_login.php">
-        <div class="col mb-3">
-          <label for="email" class="col-sm-2 col-form-label">Email</label>
-          <div class="col-sm-12">
-            <input type="text" id="email" name="email" class="form-control" />
-          </div>
+<script src="../Javascript/validacion_login.js"></script>
+
+<body>
+  <div id="formulario-completo">
+    <img src="../img/0917dfda-716c-424b-b87c-bc3c42191654.png" alt="" />
+    <h3>Inicio de sesión</h3>
+    <form method="POST" action="../Controlador/controlador_login.php">
+      <div class="col mb-3">
+        <label for="email" class="col-sm-2 col-form-label">Email</label>
+        <div class="col-sm-12">
+          <input type="text" id="email" name="email" class="form-control" />
         </div>
-        <div class="col mb-3">
-          <label for="clave" class="col-sm-2 col-form-label">Contraseña</label>
-          <div class="col-sm-12">
-            <input
-              type="password"
-              id="clave"
-              name="clave"
-              class="form-control"
-            />
-          </div>
+      </div>
+      <div class="col mb-3">
+        <label for="clave" class="col-sm-2 col-form-label">Contraseña</label>
+        <div class="col-sm-12">
+          <input type="password" id="clave" name="clave" class="form-control" />
         </div>
-        <div class="text-center mt-4">
-          <button type="submit" class="btn btn-secondary" name="iniciarSesion">
-            Entrar
-          </button>
-          <div class="mt-3">
-            <label>¿No tienes cuenta?</label><br />
-            <a href="./registro.html" class="btn btn-secondary mt-2"
-              >Registrate</a
-            >
-          </div>
+      </div>
+      <div class="text-center mt-4">
+        <button type="submit" class="btn btn-secondary" name="iniciarSesion">
+          Entrar
+        </button>
+        <div class="mt-3">
+          <label>¿No tienes cuenta?</label><br />
+          <a href="./registro.html" class="btn btn-secondary mt-2">Registrate</a>
         </div>
-      </form>
-    </div>
-  </body>
+      </div>
+    </form>
+  </div>
+</body>
 </html>

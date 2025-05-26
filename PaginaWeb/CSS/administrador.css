@@ -24,31 +24,56 @@ body {
 
 /*CABECERA-BARRA DE NAVEGACION NAV- LOGO*/
 .logo {
-    width: 150px;
-    margin: 0 1rem 1rem 1rem;
-    float: left;
+  width: 150px;
+  margin: 0 1rem 1rem 1rem;
+  float: left;
 }
 
 header {
-    background-color: var(--rojo-andino);
-    padding: 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
+  background-color: var(--rojo-andino);
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
-nav {
-    margin-top: 0;
+#menu-nav a {
+  margin-top: 0;
+  margin: 0 1rem;
+  color: var(--beige-claro);
+  text-decoration: none;
+  font-weight: bold;
 }
 
-nav a {
-    margin: 0 1rem;
-    color: var(--beige-claro);
-    text-decoration: none;
-    font-weight: bold;
+#menu-nav {
+  display: flex;
+  align-items: center;
+  gap: 50px;
 }
 
+.perfil-usuario {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+
+/*botones de agregar editar eliminar*/
+h1 {
+  text-align: center;
+}
+
+#agregar_prod button, #editar_prod button, #eliminar_prod button{
+  background-color: var(--rojo-andino);
+  margin: 20px;
+  border-color: var(--rojo-andino);
+}
+#cuadros{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
 
 /*PIE DE PAGINA*/
 footer {

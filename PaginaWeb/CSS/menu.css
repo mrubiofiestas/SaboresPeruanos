@@ -58,6 +58,35 @@ header {
   align-items: center;
 }
 
+/*Menu*/
+#menu {
+  display: flex;
+  flex-direction: column;
+}
+#menu .elementos {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.elementos p{
+  margin: 0 0 0 20px;
+}
+.elementos h3{
+  margin: 0;
+}
+#menu button {
+  background-color: var(--rojo-andino);
+  border-color: var(--rojo-andino);
+  margin-left: 20px;
+  justify-content: center;
+  align-items: center;
+}
+#platos-enteros { 
+  display: flex;
+  flex-direction: row;
+}
+
+
 /*PIE DE PAGINA*/
 footer {
   background-color: var(--rojo-oscuro);
