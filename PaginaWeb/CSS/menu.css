@@ -59,33 +59,64 @@ header {
 }
 
 /*Menu*/
-#menu {
-  display: flex;
-  flex-direction: column;
-}
-#menu .elementos {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-.elementos p{
-  margin: 0 0 0 20px;
-}
-.elementos h3{
-  margin: 0;
-}
-#menu button {
+.menu-wrapper {
   background-color: var(--rojo-andino);
-  border-color: var(--rojo-andino);
-  margin-left: 20px;
-  justify-content: center;
-  align-items: center;
+  padding: 40px;
+  margin: 40px;
+  border: 5px double #bfa374;
+  width: 50%;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+
 }
-#platos-enteros { 
+.menu-item {
   display: flex;
   flex-direction: row;
+  margin-left: 20px;
 }
 
+.menu-wrapper h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  border-bottom: 2px dashed #bfa374;
+  padding-bottom: 10px;
+}
+
+.plato {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px dotted #ccc;
+  padding: 15px 0;
+}
+
+.plato-info {
+  flex: 1;
+}
+
+.plato-info h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.plato-info p {
+  margin: 3px 0;
+  font-style: italic;
+}
+
+.boton-agregar {
+  padding: 8px 14px;
+  background-color: #bfa374;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.boton-agregar:hover {
+  background-color: #a68a64;
+}
 
 /*PIE DE PAGINA*/
 footer {
