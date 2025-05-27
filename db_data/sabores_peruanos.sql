@@ -23,8 +23,6 @@ CREATE TABLE usuario (
   FOREIGN KEY (id_rol) REFERENCES roles (id_rol) ON DELETE SET NULL ON UPDATE CASCADE
 );
 
-
-
 CREATE TABLE platos (
   nombre_plato VARCHAR(50) NOT NULL,
   tipo VARCHAR(30) NOT NULL,
@@ -37,6 +35,29 @@ CREATE TABLE ingredientes (
   cantidad INT(11) NOT NULL,
   PRIMARY KEY (nombre_ingrediente)
 );
+
+INSERT INTO ingredientes (nombre_ingrediente, cantidad) VALUES
+('Carne', 100),
+('Patatas', 100),
+('Mariscos', 100),
+('Pato', 50),
+('Arroz', 100),
+('Papa amarilla', 80),
+('Pollo', 100),
+('Pescado', 150),
+('Limón', 150),
+('Leche', 100),
+('Calamar', 60),
+('Cebolla', 100),
+('Tomate', 100),
+('Patata', 100),
+('Crema', 80),
+('Ají amarillo', 50),
+('Ensalada', 50),
+('Rocoto', 30),
+('Tallarines', 70),
+('Queso', 20);
+
 
 CREATE TABLE pedido (
   cod_pedido INT(11) NOT NULL AUTO_INCREMENT,
@@ -69,6 +90,40 @@ CREATE TABLE llevan (
   FOREIGN KEY (nombre_plato) REFERENCES platos (nombre_plato) ON UPDATE CASCADE,
   FOREIGN KEY (nombre_ingrediente) REFERENCES ingredientes (nombre_ingrediente) ON UPDATE CASCADE
 );
+
+INSERT INTO llevan (nombre_plato, nombre_ingrediente) VALUES
+('Anticuchos', 'Carne'),
+('Arroz con Mariscos', 'Mariscos'),
+('Arroz con Pato', 'Pato'),
+('Cabrito a la Norteña', 'Carne'),
+('Causa de Pollo', 'Papa amarilla'),
+('Causa de Pollo', 'Pollo'),
+('Ceviche', 'Pescado'),
+('Ceviche', 'Limón'),
+('Chicharrón de Calamar', 'Calamar'),
+('Jalea Mixta', 'Mariscos'),
+('Leche de Tigre', 'Pescado'),
+('Leche de Tigre', 'Limón'),
+('Leche de Tigre', 'Leche'),
+('Lomo Saltado', 'Carne'),
+('Lomo Saltado', 'Arroz'),
+('Lomo Saltado', 'Cebolla'),
+('Ocopa', 'Patata'),
+('Ocopa', 'Crema'),
+('Papa a la Huancaína', 'Patata'),
+('Papa a la Huancaína', 'Ají amarillo'),
+('Pollo a la Brasa con Papas', 'Pollo'),
+('Pollo a la Brasa con Papas', 'Patatas'),
+('Pollo a la Brasa con Papas', 'Ensalada'),
+('Rocoto Relleno', 'Rocoto'),
+('Rocoto Relleno', 'Crema'),
+('Tallarines a la Huancaína', 'Tallarines'),
+('Tallarines a la Huancaína', 'Carne'),
+('Tallarines a la Huancaína', 'Cebolla'),
+('Tallarines a la Huancaína', 'Tomate'),
+('Tequeños', 'Queso');
+
+
 
 INSERT INTO `platos` (`nombre_plato`, `tipo`, `precio`) VALUES
 ('Anticuchos', 'Parrilla', 12.00),
