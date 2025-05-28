@@ -64,8 +64,15 @@ footer {
   color: white;
   text-align: center;
   padding: 1rem;
+  display: flex;
+  flex-direction: row;
 }
 
 footer p {
   margin-top: 10px;
+}
+
+#redes_sociales img{
+  width: 5%;
+  
 }

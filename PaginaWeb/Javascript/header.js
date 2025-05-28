@@ -36,8 +36,6 @@ function verificarSesion() {
 ${data.nombre}
   </button>
   <ul class="dropdown-menu">
-    <li><a class="dropdown-item" href="/Vista/perfil.html">Mi perfil</a></li>
-    <li><hr class="dropdown-divider"></li>
     <li><a class="dropdown-item" href="/Controlador/controlador_logout.php">Cerrar Sesión</a></li>
   </ul>
 </div> `;

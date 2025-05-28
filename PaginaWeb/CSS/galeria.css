@@ -21,6 +21,9 @@ body {
   flex-direction: column;
   min-height: 100vh;
 }
+h2{
+  font-weight: bold;
+}
 
 /*CABECERA-BARRA DE NAVEGACION NAV- LOGO*/
 .logo {
@@ -59,19 +62,24 @@ header {
 }
 
 /*centro*/
+#galeria-comida {
+  text-align: center;
+}
+
 #galeria-comida h2 {
   margin: 10px;
   text-align: center;
-  font-weight: bold;
 }
+
 #galeria-comida figure {
   text-align: center;
 }
+
 .galeria-grid {
-display: flex;
-flex-direction: row;
-justify-content: center;
-align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .galeria-grid img {
@@ -87,14 +95,36 @@ align-items: center;
   transform: scale(1.05);
 }
 
+/*Reservas y eventos*/
+#reservas-eventos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+  padding: 20px;
+}
+
+#reservas-eventos h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#reservas-eventos img {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
+}
+
+
 /*Carrusel*/
 #carrusel-fotos {
-  display: flex;
-  flex-direction: row;
-}
-#carrusel-fotos #texto-carrusel {
   text-align: center;
+  margin: 50px;
+  padding: 20px;
 }
+
 #carrusel-fotos #carouselExampleIndicators {
   width: 400px;
   margin: 0 auto;
@@ -102,6 +132,28 @@ align-items: center;
   justify-content: center;
   align-items: center;
 }
+#texto-carrusel p{
+  margin: 20px 140px;
+  text-align: justify;
+}
+
+/*Influencers y visitas*/
+#visitas {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 50px;
+  padding: 20px;
+}
+#visitas h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+#visitas p {
+  text-align: justify;
+  margin: 20px 140px;
+}
+
 
 /*PIE DE PAGINA*/
 footer {
@@ -109,8 +161,15 @@ footer {
   color: white;
   text-align: center;
   padding: 1rem;
+  display: flex;
+  flex-direction: row;
 }
 
 footer p {
   margin-top: 10px;
+}
+
+#redes_sociales img{
+  width: 5%;
+  
 }
