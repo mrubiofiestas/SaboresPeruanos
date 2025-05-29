@@ -21,75 +21,79 @@
   <div id="header-container"></div>
   <script src="../Javascript/header.js"></script>
 
-  <section id="contacto-intro">
-    <h2>Contáctanos</h2>
-    <p>Si tienes alguna pregunta, comentario o deseas hacer una reserva, no dudes en ponerte en contacto con nosotros.
-      Estamos aquí para ayudarte a disfrutar de la mejor experiencia gastronómica peruana.</p>
+  <main id="contenido-principal">
+    <section id="contacto-intro">
+      <h2>Contáctanos</h2>
+      <p>Si tienes alguna pregunta, comentario o deseas hacer una reserva, no dudes en ponerte en contacto con nosotros.
+        Estamos aquí para ayudarte a disfrutar de la mejor experiencia gastronómica peruana.</p>
 
-    <form class="row g-3 needs-validation" id="formulario-contacto" novalidate>
-      <div class="col-md-5">
-        <label for="validationCustom01" class="form-label">Nombres</label>
-        <input type="text" class="form-control" id="validationCustom01" required>
-        <div class="valid-feedback">
-          Bien!
-        </div>
-      </div>
-      <div class="col-md-5">
-        <label for="validationCustom02" class="form-label">Apellidos</label>
-        <input type="text" class="form-control" id="validationCustom02" required>
-        <div class="valid-feedback">
-          Bien!
-        </div>
-      </div>
-      <div class="col-md-5">
-        <label for="validationCustomEmail" class="form-label">Email</label>
-        <div class="input-group has-validation">
-          <input type="text" class="form-control" id="validationCustomEmail" aria-describedby="inputGroupPrepend"
-            required>
-          <div class="invalid-feedback">
-            Por favor, ingrese un correo electrónico válido.
+      <form class="row g-3 needs-validation" id="formulario-contacto" novalidate>
+        <div class="col-md-5">
+          <label for="validationCustom01" class="form-label">Nombres</label>
+          <input type="text" class="form-control" id="validationCustom01" required>
+          <div class="valid-feedback">
+            Bien!
           </div>
         </div>
-      </div>
-      <div class="col-md-5">
-        <label for="validationCustom03" class="form-label">Telefono</label>
-        <input type="text" class="form-control" id="validationCustom03" required>
-        <div class="invalid-feedback">
-          Por favor, ingrese un número de teléfono válido.
+        <div class="col-md-5">
+          <label for="validationCustom02" class="form-label">Apellidos</label>
+          <input type="text" class="form-control" id="validationCustom02" required>
+          <div class="valid-feedback">
+            Bien!
+          </div>
         </div>
-      </div>
-      <div class="col-md-10" id="mensaje">
-        <label for="validationCustom05" class="form-label">Mensaje</label>
-        <input type="text" class="form-control" id="validationCustom05" required>
-        <div class="invalid-feedback">
-          Por favor, ingrese un mensaje.
+        <div class="col-md-5">
+          <label for="validationCustomEmail" class="form-label">Email</label>
+          <div class="input-group has-validation">
+            <input type="text" class="form-control" id="validationCustomEmail" aria-describedby="inputGroupPrepend"
+              required>
+            <div class="invalid-feedback">
+              Por favor, ingrese un correo electrónico válido.
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="col-12" id="boton-enviar">
-        <button class="btn btn-primary" type="submit">Enviar</button>
-      </div>
-    </form>
+        <div class="col-md-5">
+          <label for="validationCustom03" class="form-label">Telefono</label>
+          <input type="text" class="form-control" id="validationCustom03" required>
+          <div class="invalid-feedback">
+            Por favor, ingrese un número de teléfono válido.
+          </div>
+        </div>
+        <div class="col-md-10" id="mensaje">
+          <label for="validationCustom05" class="form-label">Mensaje</label>
+          <input type="text" class="form-control" id="validationCustom05" required>
+          <div class="invalid-feedback">
+            Por favor, ingrese un mensaje.
+          </div>
+        </div>
+        <div class="col-12" id="boton-enviar">
+          <button class="btn btn-primary" type="submit">Enviar</button>
+        </div>
+      </form>
 
-    <script>
-      (() => {
-        'use strict'
-        const forms = document.querySelectorAll('.needs-validation')
-        Array.from(forms).forEach(form => {
-          form.addEventListener('submit', event => {
-            if (!form.checkValidity()) {
-              event.preventDefault()
-              event.stopPropagation()
-            }
-            form.classList.add('was-validated')
-          }, false)
-        })
-      })()
-    </script>
-  </section>
+      <script>
+        (() => {
+          'use strict'
+          const forms = document.querySelectorAll('.needs-validation')
+          Array.from(forms).forEach(form => {
+            form.addEventListener('submit', event => {
+              if (!form.checkValidity()) {
+                event.preventDefault()
+                event.stopPropagation()
+              }
+              form.classList.add('was-validated')
+            }, false)
+          })
+        })()
+      </script>
+    </section>
+  </main>
+
 
   <footer>
     <p>&copy; 2025 Sabores Peruanos - Todos los derechos reservados</p>
     <div id="redes_sociales">
+      <p>Siguenos tambien en:</p>
       <a href="https://www.facebook.com/SaboresPeruanosAguadulce" target="_blank"><img src="../img/facebook.png"
           alt="Facebook" /></a>
       <a href="https://www.instagram.com/saboresperuanosaguadulce/" target="_blank"><img src="../img/instagram.png"

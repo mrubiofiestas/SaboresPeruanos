@@ -38,6 +38,14 @@ function validarClave($clave) {
     }
     return $clave;
 }
-
-
+function validarPrecio($precio)
+{
+    $precio = trim($precio);
+    $precio = str_replace(',', '.', $precio);
+    if (is_numeric($precio) && floatval($precio) > 0) {
+        return number_format((float)$precio, 2, '.', '');
+    } else {
+        return null;
+    }
+}
 ?>

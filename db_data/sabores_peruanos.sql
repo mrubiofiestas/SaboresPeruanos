@@ -91,6 +91,23 @@ CREATE TABLE llevan (
   FOREIGN KEY (nombre_ingrediente) REFERENCES ingredientes (nombre_ingrediente) ON UPDATE CASCADE
 );
 
+CREATE TABLE comandas (
+  id_comanda INT AUTO_INCREMENT PRIMARY KEY,
+  email VARCHAR(50) NOT NULL,
+  fecha DATETIME DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (email) REFERENCES usuario(email)
+);
+
+CREATE TABLE detalle_comanda (
+  id_detalle INT AUTO_INCREMENT PRIMARY KEY,
+  id_comanda INT NOT NULL,
+  nombre_plato VARCHAR(50) NOT NULL,
+  cantidad INT NOT NULL,
+  FOREIGN KEY (id_comanda) REFERENCES comandas(id_comanda) ON DELETE CASCADE,
+  FOREIGN KEY (nombre_plato) REFERENCES platos(nombre_plato)
+);
+
+
 INSERT INTO llevan (nombre_plato, nombre_ingrediente) VALUES
 ('Anticuchos', 'Carne'),
 ('Arroz con Mariscos', 'Mariscos'),

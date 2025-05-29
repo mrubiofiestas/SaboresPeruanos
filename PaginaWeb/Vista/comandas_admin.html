@@ -14,43 +14,32 @@
 <script src="../Javascript/validacion_login.js"></script>
 
 <body>
+  <!-- script de bootstrap -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+    crossorigin="anonymous"></script>
+
   <!-- Cabecera -->
   <div id="header-container"></div>
   <script src="../Javascript/header_admin.js"></script>
 
-  <!--<style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 20px;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 15px;
-    }
-    th, td {
-      padding: 10px;
+  <style>
+    .comanda {
       border: 1px solid #ccc;
+      margin: 1em;
+      padding: 1em;
+      border-radius: 8px;
     }
-    th {
-      background-color: #f3f3f3;
+
+    .plato {
+      margin-left: 1em;
     }
-  </style>-->
-  <script src="admin_comandas.js"></script>
+  </style>
 
-  <div class="card" style="width: 18rem;">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s
-        content.</p>
-      <a href="#" class="card-link">Card link</a>
-      <a href="#" class="card-link">Another link</a>
-    </div>
-  </div>
+  <h1>Comandas registradas</h1>
+  <div id="comandas-container"></div>
 
-
-
+  <script src="../Javascript/ver_comandas.js"></script>
 </body>
 
 </html>

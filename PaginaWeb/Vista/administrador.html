@@ -25,102 +25,104 @@
 
 
     <!--Cuadros de agregar producto-->
-    <h1>Area Admin</h1>
-    <section id="cuadros">
-        <div id="agregar_prod">
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                Agregar producto
-            </button>
-        </div>
-        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-            aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Agregar Plato</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <input class="form-control" type="text" placeholder="Nombre del plato"
-                            aria-label="Disabled input example"><br>
-                        <input class="form-control" type="text" placeholder="Tipo de plato"
-                            aria-label="Disabled input example"><br>
-                        <input class="form-control" type="text" placeholder="Precio"
-                            aria-label="Disabled input example">
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                        <button type="button" class="btn btn-primary">Agregar</button>
+    <main id="contenido-principal">
+        <h1>Area Admin</h1>
+        <section id="cuadros">
+            <div id="agregar_prod">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >
+                    Agregar producto
+                </button>
+            </div>
+            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Agregar Plato</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <input name="nombre" class="form-control" type="text" placeholder="Nombre del plato"
+                                aria-label="Disabled input example"><br>
+                            <input name="tipo" class="form-control" type="text" placeholder="Tipo de plato"
+                                aria-label="Disabled input example"><br>
+                            <input name="precio" class="form-control" type="text" placeholder="Precio"
+                                aria-label="Disabled input example">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-primary" name="agregar">Agregar</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!--Cuadros de eliminar producto-->
-        <div id="eliminar_prod">
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop2">
-                Eliminar plato
-            </button>
-        </div>
+            <!--Cuadros de eliminar producto-->
+            <div id="eliminar_prod">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop2">
+                    Eliminar plato
+                </button>
+            </div>
 
-        <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-            aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Eliminar plato</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <input class="form-control" type="text" placeholder="Nombre del plato"
-                            aria-label="Disabled input example"><br>
-                        <input class="form-control" type="text" placeholder="Tipo de plato"
-                            aria-label="Disabled input example"><br>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                        <button type="button" class="btn btn-primary">Eliminar</button>
+            <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false"
+                tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Eliminar plato</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <input name="nombre" class="form-control" type="text" placeholder="Nombre del plato"
+                                aria-label="Disabled input example"><br>
+                            <input name="tipo" class="form-control" type="text" placeholder="Tipo de plato"
+                                aria-label="Disabled input example"><br>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-primary" name="eliminar">Eliminar</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!--Cuadros de editar producto-->
-        <div id="editar_prod">
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">
-                Editar plato
-            </button>
-        </div>
+            <!--Cuadros de editar producto-->
+            <div id="editar_prod">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">
+                    Editar plato
+                </button>
+            </div>
 
-        <div class="modal fade" id="staticBackdrop3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-            aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Editar plato</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <input class="form-control" type="text" placeholder="Nombre del plato"
-                            aria-label="Disabled input example"><br>
-                        <input class="form-control" type="text" placeholder="Tipo de plato"
-                            aria-label="Disabled input example"><br>
-                        <input class="form-control" type="text" placeholder="Precio"
-                            aria-label="Disabled input example">
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                        <button type="button" class="btn btn-primary">Eliminar</button>
+            <div class="modal fade" id="staticBackdrop3" data-bs-backdrop="static" data-bs-keyboard="false"
+                tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Editar plato</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <input name="nombre" class="form-control" type="text" placeholder="Nombre del plato"
+                                aria-label="Disabled input example"><br>
+                            <input name="tipo" class="form-control" type="text" placeholder="Tipo de plato"
+                                aria-label="Disabled input example"><br>
+                            <input name="precio" class="form-control" type="text" placeholder="Precio"
+                                aria-label="Disabled input example">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-primary" name="editar">Editar</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
+        </section>
+    </main>
 
     <footer>
         <p>&copy; 2025 Sabores Peruanos - Todos los derechos reservados</p>
         <div id="redes_sociales">
+            <p>Siguenos tambien en:</p>
             <a href="https://www.facebook.com/SaboresPeruanosAguadulce" target="_blank"><img src="../img/facebook.png"
                     alt="Facebook" /></a>
             <a href="https://www.instagram.com/saboresperuanosaguadulce/" target="_blank"><img

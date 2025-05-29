@@ -57,22 +57,106 @@ header {
   display: flex;
   align-items: center;
 }
+ 
+/*CARRITO*/
+#carrito-container {
+  background-color: rgba(232, 219, 192, 0.1); 
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  margin: 2rem auto;
+  width: 80%;
+  max-width: 700px;
+}
+
+/* CADA ITEM DEL CARRITO */
+#carrito-container div {
+  background-color: rgba(255, 255, 255, 0.05);
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-left: 6px solid var(--rojo-andino);
+  border-radius: 8px;
+  font-size: 1.1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* BOTÓN ELIMINAR INDIVIDUAL */
+.eliminar-btn {
+  background-color: var(--rojo-andino);
+  border: none;
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.boton-eliminar:hover {
+  background-color: var(--rojo-oscuro);
+}
+
+/* TOTAL Y BOTÓN PAGAR */
+#total {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--beige-claro);
+  text-align: center;
+}
+#total_p {
+  text-align: center;
+}
+
+#btn-pagar {
+  background-color: var(--rojo-andino);
+  color: white;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 1rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#btn-pagar:hover {
+  background-color: var(--rojo-oscuro);
+}
+#contenido-principal {
+  flex: 1;
+  padding: 2rem;
+}
+
 
 /*PIE DE PAGINA*/
 footer {
   background-color: var(--rojo-oscuro);
   color: white;
   text-align: center;
-  padding: 1rem;
+  padding: 1rem 2rem;
   display: flex;
-  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
-
 footer p {
   margin-top: 10px;
 }
 
-#redes_sociales img{
-  width: 5%;
-  
+#redes_sociales {
+  display: flex;
+  gap: 1rem;
+}
+
+#redes_sociales img {
+  width: 30px;
+  transition: transform 0.2s;
+}
+
+#redes_sociales img:hover {
+  transform: scale(1.1);
 }

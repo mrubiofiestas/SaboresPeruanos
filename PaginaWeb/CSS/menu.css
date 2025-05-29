@@ -114,16 +114,26 @@ footer {
   background-color: var(--rojo-oscuro);
   color: white;
   text-align: center;
-  padding: 1rem;
+  padding: 1rem 2rem;
   display: flex;
-  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
-
 footer p {
   margin-top: 10px;
 }
 
-#redes_sociales img{
-  width: 5%;
-  
+#redes_sociales {
+  display: flex;
+  gap: 1rem;
+}
+
+#redes_sociales img {
+  width: 30px;
+  transition: transform 0.2s;
+}
+
+#redes_sociales img:hover {
+  transform: scale(1.1);
 }
