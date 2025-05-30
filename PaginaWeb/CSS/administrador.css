@@ -1,28 +1,25 @@
 :root {
-    --rojo-andino: #8c1f1f;
-    --beige-claro: #e8dbc0;
-    --rojo-oscuro: #5c1010;
-    --negro-suave: #1a1a1a;
+  --rojo-andino: #8c1f1f;
+  --beige-claro: #e8dbc0;
+  --rojo-oscuro: #5c1010;
+  --negro-suave: #1a1a1a;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 /*CUERPO EN GENERAL*/
 body {
-    background-image: url(../img/fondo_peru.png);
-    font-family: 'Poppins', sans-serif;
-    background-color: var(--negro-suave);
-    color: var(--beige-claro);
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-.dropdown-menu a {
-  color: black;
+  background-image: url(../img/fondo_peru.png);
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--negro-suave);
+  color: var(--beige-claro);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 /*CABECERA-BARRA DE NAVEGACION NAV- LOGO*/
@@ -60,21 +57,21 @@ header {
   display: flex;
   align-items: center;
 }
-.dropdown-item a {
-  color: var(--rojo-oscuro);
-}
 
 /*botones de agregar editar eliminar*/
 h1 {
   text-align: center;
 }
 
-#agregar_prod button, #editar_prod button, #eliminar_prod button{
+#agregar_prod button,
+#editar_prod button,
+#eliminar_prod button {
   background-color: var(--rojo-andino);
   margin: 20px;
   border-color: var(--rojo-andino);
 }
-#cuadros{
+
+#cuadros {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -85,6 +82,78 @@ h1 {
   flex: 1;
   padding: 2rem;
 }
+
+.comanda-historial {
+  background-color: #e0e0e0;
+  border-left: 5px solid #4caf50;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.comanda {
+  border: 2px solid #ccc;
+  margin: 20px;
+  padding: 35px;
+  border-radius: 8px;
+  background-color: #44444486;
+}
+
+.plato {
+  margin-left: 50px;
+}
+/* CONTENEDOR DE COMANDAS EN MODO CUADRÍCULA */
+#comandas-container,
+#historial-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+/* TARJETA DE COMANDA */
+.comanda {
+  border: 2px solid #ccc;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #444444cc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease;
+}
+
+.comanda:hover {
+  transform: scale(1.02);
+}
+
+.comanda h3 {
+  margin-bottom: 10px;
+  color: var(--beige-claro);
+}
+
+.comanda p {
+  margin: 4px 0;
+  color: #f0e8d9;
+}
+
+.comanda ul {
+  padding-left: 20px;
+  color: #f7f7f7;
+}
+
+.comanda button {
+  margin-top: 10px;
+  background-color: var(--rojo-andino);
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.comanda button:hover {
+  background-color: var(--rojo-oscuro);
+}
+
 
 /*PIE DE PAGINA*/
 footer {
@@ -97,6 +166,7 @@ footer {
   align-items: center;
   flex-wrap: wrap;
 }
+
 footer p {
   margin-top: 10px;
 }

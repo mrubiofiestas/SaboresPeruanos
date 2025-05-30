@@ -1,9 +1,8 @@
 <?php
-
 /**
  * Este archivo se encarga de manejar el inicio de sesión de los usuarios.
- * Verifica el correo y la clave, y según el rol, los manda a la página que les toca.
- * Si algo falla, muestra un mensajito de error.
+ * Verifica el correo y la clave, y según el rol, los manda a la página que les pertenece.
+ * Si algo falla, muestra un mensaje de error.
  * 
  * @author Milagros del Rosario Rubio Fiestas
  * @package Controlador
@@ -11,7 +10,7 @@
 
 require_once '../Modelo/Conexion.php';
 require_once '../Modelo/Usuario.php';
-require_once '../Modelo/validaciones.php';
+require_once 'validaciones.php';
 
 session_start();
 

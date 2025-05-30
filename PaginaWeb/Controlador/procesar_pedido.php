@@ -12,17 +12,27 @@
 session_start();
 require_once '../Modelo/Conexion.php';
 
+// Verifica si el usuario ha iniciado sesión
+if (!filter_has_var(INPUT_SERVER, 'REQUEST_METHOD') || $_SERVER['REQUEST_METHOD'] !== 'POST') {
+    http_response_code(405);
+    echo json_encode(['success' => false, 'error' => 'Método no permitido']);
+    exit;
+}
+
 if (!isset($_SESSION['email'])) {
     http_response_code(403);
     echo json_encode(['success' => false, 'error' => 'Usuario no autenticado']);
     exit;
 }
 
-$data = json_decode(file_get_contents("php://input"), true);
+// Obtener datos JSON desde el body del request
+$datosCrudos = file_get_contents("php://input");
+$data = json_decode($datosCrudos, true);
 
-if (!$data || count($data) === 0) {
+// Validar contenido
+if (!$data || !is_array($data) || count($data) === 0) {
     http_response_code(400);
-    echo json_encode(['success' => false, 'error' => 'Carrito vacío']);
+    echo json_encode(['success' => false, 'error' => 'Carrito vacío o datos inválidos']);
     exit;
 }
 
@@ -33,7 +43,7 @@ try {
     $pdo = $conexion->getConexion();
     $pdo->beginTransaction();
 
-    // 1. Insertar en tabla pedido
+    // Insertar pedido
     $descripcion = implode(", ", array_column($data, 'nombre'));
     $stmtPedido = $pdo->prepare("INSERT INTO pedido (descripcion, email_usuario) VALUES (:descripcion, :email)");
     $stmtPedido->execute([
@@ -42,7 +52,7 @@ try {
     ]);
     $cod_pedido = $pdo->lastInsertId();
 
-    // 2. Insertar en contiene
+    // Insertar platos en contiene
     $stmtContiene = $pdo->prepare("INSERT INTO contiene (cod_pedido, nombre_plato) VALUES (:pedido, :plato)");
     foreach ($data as $item) {
         $stmtContiene->execute([
@@ -51,16 +61,15 @@ try {
         ]);
     }
 
-    // 3. Insertar en comandas
+    // Insertar comanda
     $stmtComanda = $pdo->prepare("INSERT INTO comandas (email) VALUES (:email)");
-    $stmtComanda->bindParam(':email', $email);
-    $stmtComanda->execute();
+    $stmtComanda->execute([':email' => $email]);
     $id_comanda = $pdo->lastInsertId();
 
-    // 4. Insertar en detalle_comanda
+    // Insertar detalles de la comanda
     $stmtDetalle = $pdo->prepare("INSERT INTO detalle_comanda (id_comanda, nombre_plato, cantidad) VALUES (:id, :plato, :cantidad)");
     foreach ($data as $item) {
-        $cantidad = $item['cantidad'] ?? 1;
+        $cantidad = isset($item['cantidad']) ? intval($item['cantidad']) : 1;
         $stmtDetalle->execute([
             ':id' => $id_comanda,
             ':plato' => $item['nombre'],
@@ -70,8 +79,11 @@ try {
 
     $pdo->commit();
     echo json_encode(['success' => true]);
+
 } catch (Exception $e) {
-    $pdo->rollBack();
+    if ($pdo->inTransaction()) {
+        $pdo->rollBack();
+    }
     http_response_code(500);
     echo json_encode([
         'success' => false,

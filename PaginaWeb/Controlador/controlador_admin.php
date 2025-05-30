@@ -5,7 +5,7 @@
  * Si todo sale bien, redirige con mensaje de éxito; si no, manda error.
  * 
  * @author Milagros del Rosario Rubio Fiestas
-  * @version 1.0
+ * @version 1.1
  * @package Controlador
  */
 
@@ -15,16 +15,12 @@ session_start();
 $admin = new Administrador();
 
 // Agregar plato
-/**
- * Si se manda el formulario para agregar, valida los datos y llama a agregarPlato.
- * Redirige según si salió bien o mal.
- */
-if (isset($_POST['agregar'])) {
-    $nombre = $_POST['nombre'] ?? '';
-    $tipo = $_POST['tipo'] ?? '';
-    $precio = $_POST['precio'] ?? '';
+if (filter_has_var(INPUT_POST, 'agregar')) {
+    $nombre = filter_input(INPUT_POST, 'nombre');
+    $tipo = filter_input(INPUT_POST, 'tipo');
+    $precio = filter_input(INPUT_POST, 'precio', FILTER_VALIDATE_FLOAT);
 
-    if ($nombre && $tipo && is_numeric($precio)) {
+    if ($nombre && $tipo && $precio !== false) {
         $admin->agregarPlato($nombre, $tipo, $precio);
         header("Location: /Vista/administrador.html?success=agregado");
         exit();
@@ -35,13 +31,9 @@ if (isset($_POST['agregar'])) {
 }
 
 // Eliminar plato
-/**
- * Si se manda el formulario para eliminar, valida los datos y llama a eliminarPlato.
- * Redirige según si salió bien o mal.
- */
-if (isset($_POST['eliminar'])) {
-    $nombre = $_POST['nombre'] ?? '';
-    $tipo = $_POST['tipo'] ?? '';
+if (filter_has_var(INPUT_POST, 'eliminar')) {
+    $nombre = filter_input(INPUT_POST, 'nombre');
+    $tipo = filter_input(INPUT_POST, 'tipo');
 
     if ($nombre && $tipo) {
         $admin->eliminarPlato($nombre, $tipo);
@@ -54,16 +46,12 @@ if (isset($_POST['eliminar'])) {
 }
 
 // Editar plato
-/**
- * Si se manda el formulario para editar, valida los datos y llama a editarPlato.
- * Redirige según si salió bien o mal.
- */
-if (isset($_POST['editar'])) {
-    $nombre = $_POST['nombre'] ?? '';
-    $tipo = $_POST['tipo'] ?? '';
-    $precio = $_POST['precio'] ?? '';
+if (filter_has_var(INPUT_POST, 'editar')) {
+    $nombre = filter_input(INPUT_POST, 'nombre');
+    $tipo = filter_input(INPUT_POST, 'tipo');
+    $precio = filter_input(INPUT_POST, 'precio', FILTER_VALIDATE_FLOAT);
 
-    if ($nombre && $tipo && is_numeric($precio)) {
+    if ($nombre && $tipo && $precio !== false) {
         $admin->editarPlato($nombre, $tipo, $precio);
         header("Location: /Vista/administrador.html?success=editado");
         exit();
@@ -72,4 +60,3 @@ if (isset($_POST['editar'])) {
         exit();
     }
 }
-?>

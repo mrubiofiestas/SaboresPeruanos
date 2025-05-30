@@ -1,33 +1,33 @@
 <?php
 /**
- * Este archivo se encarga de obtener las comandas con estado "pendiente" desde la base de datos.
- * Por cada comanda también se consultan los platos correspondientes desde la tabla detalle_comanda.
- * Devuelve los datos en formato JSON.
+ * Este archivo devuelve el historial de comandas marcadas como "listas".
+ * Solo accesible por usuarios con rol de Administrador.
  * 
  * @author Milagros del Rosario Rubio Fiestas
  * @package Controlador
  */
-session_start();
-
-if (!isset($_SESSION['email']) || $_SESSION['rol'] !== 'Administrador') {
-    http_response_code(403);
-    echo json_encode(['error' => 'Acceso denegado']);
-    exit;
-}
 
 require_once '../Modelo/Conexion.php';
+session_start();
 header('Content-Type: application/json');
+
+// Verificar si el usuario es administrador
+if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'Administrador') {
+    http_response_code(403);
+    echo json_encode(['success' => false, 'error' => 'Acceso no autorizado']);
+    exit;
+}
 
 try {
     $conexion = new Conexion("sabores_peruanos", "db", "root", "clave");
     $pdo = $conexion->getConexion();
 
-    // Obtener todas las comandas pendientes
-    $stmt = $pdo->prepare("SELECT * FROM comandas WHERE estado = 'pendiente'");
+    // Obtener todas las comandas con estado 'lista'
+    $stmt = $pdo->prepare("SELECT * FROM comandas WHERE estado = 'lista' ORDER BY fecha DESC");
     $stmt->execute();
     $comandas = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    // Para cada comanda, buscar los platos y sus cantidades
+    // Añadir los platos correspondientes a cada comanda
     foreach ($comandas as &$comanda) {
         $stmtPlatos = $pdo->prepare("SELECT nombre_plato, cantidad FROM detalle_comanda WHERE id_comanda = :id");
         $stmtPlatos->bindParam(':id', $comanda['id_comanda'], PDO::PARAM_INT);
@@ -40,7 +40,7 @@ try {
     http_response_code(500);
     echo json_encode([
         'success' => false,
-        'error' => 'Error al obtener las comandas',
+        'error' => 'Error al obtener el historial',
         'detalle' => $e->getMessage()
     ]);
 }

@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <img src="../img/logo_SP.png" alt="Logo Sabores Peruanos" class="logo">
             <nav id="menu-nav">
                 <a href="/Vista/comandas_admin.html">Comandas</a>
+                <a href="/Vista/comandas_listas.html">Listas</a>
                 <a href="/Vista/administrador.html">Menú</a>
             </nav>
         </header>
