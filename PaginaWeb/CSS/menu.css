@@ -95,10 +95,11 @@ header {
 
 .btn-agregar, .btn-ingredientes {
   padding: 6px 12px;
+  margin-left: 10px;
   background-color: #8b0000;
   color: white;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
   font-size: 14px;
   border: 20px;

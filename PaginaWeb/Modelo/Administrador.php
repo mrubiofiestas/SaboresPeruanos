@@ -1,9 +1,28 @@
 <?php
+/**
+ * Clase Administrador
+ * Esta clase sirve para que el admin pueda agregar, eliminar y editar platos en la base de datos.
+ * Valida los datos antes de hacer cualquier cosa para evitar problemas.
+ * 
+ * @author Milagros del Rosario Rubio Fiestas
+ * @version 1.0
+ * @package Modelo
+ */
+
 require_once 'Conexion.php';
 require_once 'validaciones.php';
 
 class Administrador
 {
+    /**
+     * Agrega un plato nuevo a la base de datos.
+     * Valida los datos antes de guardarlos.
+     *
+     * @param string $nombre_plato El nombre del plato.
+     * @param string $tipo El tipo de plato (ej: entrada, fondo, postre).
+     * @param float $precio El precio del plato.
+     * @return bool True si todo salió bien, false si hubo error.
+     */
     public function agregarPlato($nombre_plato, $tipo, $precio)
     {
         $nombre_plato = validar_texto($nombre_plato);
@@ -27,6 +46,12 @@ class Administrador
         }
     }
 
+    /**
+     * Elimina un plato de la base de datos por su nombre.
+     * 
+     * @param string $nombre_plato El nombre del plato a borrar.
+     * @return bool True si lo borró, false si falló.
+     */
     public function eliminarPlato($nombre_plato)
     {
         $nombre_plato = validar_texto($nombre_plato);
@@ -46,6 +71,14 @@ class Administrador
         }
     }
 
+    /**
+     * Edita los datos de un plato ya existente.
+     * 
+     * @param string $nombre_plato El nombre del plato a editar.
+     * @param string $tipo El nuevo tipo de plato.
+     * @param float $precio El nuevo precio.
+     * @return bool True si lo editó, false si falló.
+     */
     public function editarPlato($nombre_plato, $tipo, $precio)
     {
         $nombre_plato = validar_texto($nombre_plato);

@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && filter_has_var(INPUT_POST, 'iniciar
                 // Redirige según el rol del usuario
                 switch ($rol) {
                     case "Administrador":
-                        header("Location: /Vista/administrador.html");
+                        header("Location: /Vista/comandas_admin.html");
                         break;
                     case "Usuario":
                         header("Location: /index.html");
