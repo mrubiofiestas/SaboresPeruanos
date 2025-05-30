@@ -1,9 +1,17 @@
+/**
+ * Cuando el DOM esté listo, carga el menú de platos y muestra los botones de acción.
+ * Si el usuario está logueado y es de tipo Usuario, puede agregar platos al carrito.
+ * También permite ver los ingredientes de cada plato.
+ *
+ * @event DOMContentLoaded
+ */
 document.addEventListener("DOMContentLoaded", () => {
     fetch('/Controlador/verificar_sesion.php')
         .then(res => res.json())
         .then(data => {
             const contenedorMenu = document.getElementById('menu-container');
 
+            // Crea la tabla del menú
             const tabla = document.createElement('table');
             tabla.className = 'tabla-menu';
             tabla.innerHTML = `
@@ -19,26 +27,30 @@ document.addEventListener("DOMContentLoaded", () => {
             contenedorMenu.appendChild(tabla);
             const cuerpoTabla = tabla.querySelector('#tbody-menu');
 
+            // Obtiene los platos desde el backend
             fetch('/Controlador/controlador_platos.php')
                 .then(res => res.json())
                 .then(platos => {
                     platos.forEach(plato => {
                         const tr = document.createElement('tr');
 
+                        // Celda con el nombre del plato
                         const tdNombre = document.createElement('td');
                         tdNombre.textContent = plato.nombre_plato;
 
+                        // Celda con el precio del plato
                         const tdPrecio = document.createElement('td');
                         tdPrecio.textContent = `${plato.precio}€`;
 
+                        // Celda con los botones de acción
                         const tdAcciones = document.createElement('td');
 
-                        // Botón Ingredientes
+                        // Botón para ver ingredientes
                         const btnIngredientes = document.createElement('button');
                         btnIngredientes.textContent = 'Ingredientes';
                         btnIngredientes.className = 'btn-ingredientes';
 
-                        // Contenedor para los ingredientes
+                        // Contenedor para los ingredientes (se muestra/oculta)
                         const ingredientesDiv = document.createElement('div');
                         ingredientesDiv.className = 'ingredientes';
                         ingredientesDiv.style.display = 'none';
@@ -48,9 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                 fetch(`/Controlador/ingredientes.php?nombre_plato=${encodeURIComponent(plato.nombre_plato)}`)
                                     .then(resp => resp.json())
                                     .then(ingredientes => {
-                                        console.log("Ingredientes recibidos:", ingredientes);
-
-                                        // Verificar que ingredientes sea un array
+                                        // Si hay ingredientes, los muestra en una lista
                                         if (Array.isArray(ingredientes)) {
                                             ingredientesDiv.innerHTML = `
       <strong>Ingredientes:</strong>
@@ -61,7 +71,6 @@ document.addEventListener("DOMContentLoaded", () => {
       <strong>No se encontraron ingredientes para este plato.</strong>
     `;
                                         }
-
                                         ingredientesDiv.style.display = 'block';
                                     });
                             } else {
@@ -71,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                         tdAcciones.appendChild(btnIngredientes);
 
-                        // Botón Agregar al carrito (solo usuarios logueados)
+                        // Botón para agregar al carrito (solo si el usuario está logueado y es Usuario)
                         if (data.logueado && data.rol === 'Usuario') {
                             const btnAgregar = document.createElement('button');
                             btnAgregar.textContent = 'Agregar al carrito';
@@ -95,7 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         tr.appendChild(tdAcciones);
                         cuerpoTabla.appendChild(tr);
 
-                        // Fila para mostrar ingredientes
+                        // Fila extra para mostrar los ingredientes debajo del plato
                         const filaIngredientes = document.createElement('tr');
                         const celdaIngredientes = document.createElement('td');
                         celdaIngredientes.colSpan = 3;

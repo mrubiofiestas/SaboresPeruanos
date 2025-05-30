@@ -1,13 +1,21 @@
+/**
+ * Script para mostrar todas las comandas en la vista del administrador.
+ * Hace una petición al backend para obtener las comandas y las muestra en pantalla.
+ * Si no hay comandas, muestra un mensaje. Si hay error, muestra mensaje de error.
+ */
+
 fetch('/Controlador/ver_comandas.php')
     .then(res => res.json())
     .then(data => {
         const container = document.getElementById('comandas-container');
 
+        // Si no hay comandas, muestra un mensaje
         if (!Array.isArray(data) || data.length === 0) {
             container.innerHTML = '<p>No hay comandas registradas.</p>';
             return;
         }
 
+        // Por cada comanda, crea un div con la info y la lista de platos
         data.forEach(comanda => {
             const div = document.createElement('div');
             div.classList.add('comanda');

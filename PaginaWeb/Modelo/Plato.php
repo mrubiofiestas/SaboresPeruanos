@@ -1,4 +1,15 @@
 <?php
+
+/**
+ * Clase Plato
+ * Esta clase sirve para manejar todo lo relacionado a los platos: crearlos, editarlos, borrarlos y listarlos.
+ * Así puedes trabajar con los platos de la base de datos sin complicarte la vida.
+ * 
+ * @author Milagros del Rosario Rubio Fiestas
+ * @version 1.0
+ * @package Modelo
+ */
+
 require_once 'Conexion.php';
 require_once 'validaciones.php';
 
@@ -8,6 +19,13 @@ class Plato
     private $tipo;
     private $precio;
 
+    /**
+     * Crea un nuevo objeto Plato.
+     *
+     * @param string $nombre El nombre del plato.
+     * @param string $tipo El tipo de plato.
+     * @param float $precio El precio del plato.
+     */
     public function __construct($nombre, $tipo, $precio)
     {
         $this->nombre = validar_Texto($nombre);
@@ -15,6 +33,11 @@ class Plato
         $this->precio = filter_var($precio, FILTER_VALIDATE_FLOAT);
     }
 
+    /**
+     * Saca todos los platos de la base de datos.
+     *
+     * @return array Lista de platos (cada uno como array asociativo).
+     */
     public static function obtenerTodos()
     {
         try {
@@ -26,6 +49,11 @@ class Plato
         }
     }
 
+    /**
+     * Agrega este plato a la base de datos.
+     *
+     * @return bool True si todo ok, false si falló.
+     */
     public function agregarPlato()
     {
         try {
@@ -40,6 +68,12 @@ class Plato
         }
     }
 
+    /**
+     * Edita los datos de un plato ya existente.
+     *
+     * @param string $nombreOriginal El nombre actual del plato que quieres editar.
+     * @return bool True si lo editó, false si falló.
+     */
     public function editarPlato($nombreOriginal)
     {
         try {
@@ -55,13 +89,20 @@ class Plato
         }
     }
 
+    /**
+     * Borra un plato de la base de datos por su nombre.
+     *
+     * @param string $nombre El nombre del plato a borrar.
+     * @return bool True si lo borró, false si falló.
+     */
     public static function eliminarPlato($nombre)
     {
         try {
             $conexion = new Conexion("sabores_peruanos", "db", "root", "clave");
             $consulta = $conexion->getConexion()->prepare("DELETE FROM platos WHERE nombre_plato = :nombre");
             $consulta->bindParam(":nombre", $nombre);
-            return $consulta->execute();
+            $consulta->execute();
+            return $consulta->rowCount() > 0;
         } catch (PDOException $e) {
             die("Error al eliminar plato: " . $e->getMessage());
         }

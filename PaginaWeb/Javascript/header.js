@@ -1,3 +1,4 @@
+// Este script se encarga de cargar el header en las páginas y verificar la sesión del usuario
 document.addEventListener("DOMContentLoaded", function () {
   const headerHTML = `
         <header>
@@ -10,12 +11,24 @@ document.addEventListener("DOMContentLoaded", function () {
             </nav>
         </header>
     `;
+  // Inserta el HTML del header en el contenedor con id "header-container"
   document.getElementById("header-container").innerHTML = headerHTML;
+  // Llama a la función para verificar la sesión del usuario
   verificarSesion();
 });
 
+/**
+ * Verifica si el usuario está logueado y actualiza el menú del header.
+ * Si está logueado, muestra el carrito y el nombre del usuario con la opción de cerrar sesión.
+ * Si no, muestra el botón para iniciar sesión.
+ *
+ * @function verificarSesion
+ * @description Realiza una petición al servidor para verificar el estado de la sesión del usuario.
+ * @returns {void}
+ */
 function verificarSesion() {
   fetch("/Controlador/verificar_sesion.php")
+    // Realiza una petición al servidor para verificar si el usuario está logueado
     .then((response) => response.json())
     .then((data) => {
       const nav = document.querySelector("#menu-nav");

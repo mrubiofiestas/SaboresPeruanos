@@ -130,6 +130,15 @@ header {
   flex: 1;
   padding: 2rem;
 }
+#contenido-principal p {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+#contenido-principal h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-weight: bold;
+}
 
 
 /*PIE DE PAGINA*/

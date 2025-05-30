@@ -4,14 +4,16 @@
   --rojo-oscuro: #5c1010;
   --negro-suave: #1a1a1a;
 }
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 /*CUERPO EN GENERAL*/
 body {
-  background-image: url(../img/fondo_peru.png);
+  background-image: url(../img/fondo_opcion.jpg);
   font-family: "Poppins", sans-serif;
   background-color: var(--negro-suave);
   color: var(--beige-claro);
@@ -22,28 +24,31 @@ body {
 
 /*Formulario login :) */
 form {
-    margin: 0 80px;
+  margin: 0 80px;
 }
+
 #formulario-completo button {
-    justify-content: center;
+  justify-content: center;
 }
 
 #formulario-completo {
-    background-color: var(--rojo-andino);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 30px 80px;
-    margin: auto;
-    border-radius: 20px;
-    align-items: center;
+  background-color: var(--rojo-andino);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 30px 80px;
+  margin: auto;
+  border-radius: 20px;
+  align-items: center;
 }
+
 #formulario-completo img {
-    width: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
 .botones-centrados {
   text-align: center;
   margin-top: 20px;

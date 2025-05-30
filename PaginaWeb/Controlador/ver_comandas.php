@@ -1,4 +1,13 @@
 <?php
+/**
+ * Este archivo sirve para que el admin pueda ver todas las comandas hechas.
+ * Solo deja entrar si eres admin, si no, te manda un error.
+ * Saca la info de la base de datos y la devuelve en JSON, con los platos y cantidades de cada comanda.
+ * 
+ * @author Milagros del Rosario Rubio Fiestas
+ * @package Controlador
+ */
+
 session_start();
 
 if (!isset($_SESSION['email']) || $_SESSION['rol'] !== 'Administrador') {
@@ -13,30 +22,30 @@ try {
     $conexion = new Conexion("sabores_peruanos", "db", "root", "clave");
     $pdo = $conexion->getConexion();
 
-    $sql = "
+    $sqlComanda = "
         SELECT c.id_comanda, c.email, c.fecha, d.nombre_plato, d.cantidad 
         FROM comandas c
         JOIN detalle_comanda d ON c.id_comanda = d.id_comanda
         ORDER BY c.fecha DESC
     ";
 
-    $stmt = $pdo->query($sql);
+    $consultaComanda = $pdo->query($sqlComanda);
     $comandas = [];
 
-    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-        $id = $row['id_comanda'];
+    while ($fila = $consultaComanda->fetch(PDO::FETCH_ASSOC)) {
+        $id = $fila['id_comanda'];
         if (!isset($comandas[$id])) {
             $comandas[$id] = [
                 'id_comanda' => $id,
-                'email' => $row['email'],
-                'fecha' => $row['fecha'],
+                'email' => $fila['email'],
+                'fecha' => $fila['fecha'],
                 'platos' => []
             ];
         }
 
         $comandas[$id]['platos'][] = [
-            'nombre_plato' => $row['nombre_plato'],
-            'cantidad' => $row['cantidad']
+            'nombre_plato' => $fila['nombre_plato'],
+            'cantidad' => $fila['cantidad']
         ];
     }
 

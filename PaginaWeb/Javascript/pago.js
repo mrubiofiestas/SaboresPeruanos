@@ -1,8 +1,19 @@
+/**
+ * Script para mostrar el carrito, calcular el total y procesar el pago del pedido.
+ * Permite eliminar productos del carrito y enviar el pedido al administrador.
+ *
+ * @event DOMContentLoaded
+ */
 document.addEventListener('DOMContentLoaded', () => {
+  // Obtiene el carrito del localStorage o un array vacío si no hay nada
   let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
   const contenedor = document.getElementById('carrito-container');
   const totalSpan = document.getElementById('total');
 
+  /**
+   * Dibuja el carrito en pantalla y calcula el total.
+   * También agrega los eventos para eliminar productos.
+   */
   function renderCarrito() {
     contenedor.innerHTML = '';
     let total = 0;
@@ -19,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     totalSpan.innerText = total.toFixed(2);
 
-    // Agregar eventos a los botones de eliminar
+    // Agrega eventos a los botones de eliminar
     document.querySelectorAll('.eliminar-btn').forEach(btn => {
       btn.addEventListener('click', e => {
         const index = e.target.dataset.index;
@@ -50,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
           localStorage.removeItem('carrito');
           window.location.href = '/Vista/menu.html';
         } else {
-          alert('Error al registrar el pedido: ' + (response.error || 'Error desconocido'));
+          alert('Error: solo se pueden comprar platos de diferentes tipos.');
         }
       })
       .catch(error => {

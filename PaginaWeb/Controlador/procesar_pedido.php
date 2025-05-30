@@ -1,4 +1,14 @@
 <?php
+/**
+ * Este archivo se encarga de procesar el pedido que hace el usuario.
+ * Recibe los datos del carrito en JSON, guarda el pedido y sus detalles en la base de datos.
+ * Si el usuario no está logueado o el carrito está vacío, manda un error.
+ * Si todo sale bien, responde con éxito; si algo falla, manda el error.
+ * 
+ * @author Milagros del Rosario Rubio Fiestas
+ * @package Controlador
+ */
+
 session_start();
 require_once '../Modelo/Conexion.php';
 
