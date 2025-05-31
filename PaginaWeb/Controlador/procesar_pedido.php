@@ -45,32 +45,32 @@ try {
 
     // Insertar pedido
     $descripcion = implode(", ", array_column($data, 'nombre'));
-    $stmtPedido = $pdo->prepare("INSERT INTO pedido (descripcion, email_usuario) VALUES (:descripcion, :email)");
-    $stmtPedido->execute([
+    $consulta_pedido = $pdo->prepare("INSERT INTO pedido (descripcion, email_usuario) VALUES (:descripcion, :email)");
+    $consulta_pedido->execute([
         ':descripcion' => $descripcion,
         ':email' => $email
     ]);
     $cod_pedido = $pdo->lastInsertId();
 
     // Insertar platos en contiene
-    $stmtContiene = $pdo->prepare("INSERT INTO contiene (cod_pedido, nombre_plato) VALUES (:pedido, :plato)");
+    $consulta_contiene = $pdo->prepare("INSERT INTO contiene (cod_pedido, nombre_plato) VALUES (:pedido, :plato)");
     foreach ($data as $item) {
-        $stmtContiene->execute([
+        $consulta_contiene->execute([
             ':pedido' => $cod_pedido,
             ':plato' => $item['nombre']
         ]);
     }
 
     // Insertar comanda
-    $stmtComanda = $pdo->prepare("INSERT INTO comandas (email) VALUES (:email)");
-    $stmtComanda->execute([':email' => $email]);
+    $consulta_comanda = $pdo->prepare("INSERT INTO comandas (email) VALUES (:email)");
+    $consulta_comanda->execute([':email' => $email]);
     $id_comanda = $pdo->lastInsertId();
 
     // Insertar detalles de la comanda
-    $stmtDetalle = $pdo->prepare("INSERT INTO detalle_comanda (id_comanda, nombre_plato, cantidad) VALUES (:id, :plato, :cantidad)");
+    $consulta_detalle = $pdo->prepare("INSERT INTO detalle_comanda (id_comanda, nombre_plato, cantidad) VALUES (:id, :plato, :cantidad)");
     foreach ($data as $item) {
         $cantidad = isset($item['cantidad']) ? intval($item['cantidad']) : 1;
-        $stmtDetalle->execute([
+        $consulta_detalle->execute([
             ':id' => $id_comanda,
             ':plato' => $item['nombre'],
             ':cantidad' => $cantidad

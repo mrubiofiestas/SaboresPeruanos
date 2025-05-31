@@ -46,16 +46,19 @@ class Comanda
      */
     public static function marcarComoLista($idComanda)
     {
+        $salida = false;
         try {
             $conexion = new Conexion("sabores_peruanos", "db", "root", "clave");
 
-            $consulta = $conexion->getConexion()->prepare("UPDATE comandas SET estado = 'lista' WHERE id = :id");
-            $consulta->bindParam(":id", $idComanda);
+            $consulta = $conexion->getConexion()->prepare("UPDATE comandas SET estado = 'lista' WHERE id_comanda = :id_comanda");
+            $consulta->bindParam(":id_comanda", $idComanda);
             $consulta->execute();
 
-            return $consulta->rowCount() > 0;
+            $salida = $consulta->rowCount() > 0;
         } catch (PDOException $e) {
-            die("Error al actualizar comanda: " . $e->getMessage());
+            error_log("Error al actualizar comanda: " . $e->getMessage());
+            $salida = false;
         }
+        return $salida;
     }
 }

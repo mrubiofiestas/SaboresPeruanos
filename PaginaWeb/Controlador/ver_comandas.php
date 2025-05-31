@@ -23,16 +23,16 @@ try {
     $pdo = $conexion->getConexion();
 
     // Obtener todas las comandas pendientes
-    $stmt = $pdo->prepare("SELECT * FROM comandas WHERE estado = 'pendiente'");
-    $stmt->execute();
-    $comandas = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $consulta_pendiente = $pdo->prepare("SELECT * FROM comandas WHERE estado = 'pendiente'");
+    $consulta_pendiente->execute();
+    $comandas = $consulta_pendiente->fetchAll(PDO::FETCH_ASSOC);
 
     // Para cada comanda, buscar los platos y sus cantidades
     foreach ($comandas as &$comanda) {
-        $stmtPlatos = $pdo->prepare("SELECT nombre_plato, cantidad FROM detalle_comanda WHERE id_comanda = :id");
-        $stmtPlatos->bindParam(':id', $comanda['id_comanda'], PDO::PARAM_INT);
-        $stmtPlatos->execute();
-        $comanda['platos'] = $stmtPlatos->fetchAll(PDO::FETCH_ASSOC);
+        $consulta_plato = $pdo->prepare("SELECT nombre_plato, cantidad FROM detalle_comanda WHERE id_comanda = :id");
+        $consulta_plato->bindParam(':id', $comanda['id_comanda'], PDO::PARAM_INT);
+        $consulta_plato->execute();
+        $comanda['platos'] = $consulta_plato->fetchAll(PDO::FETCH_ASSOC);
     }
 
     echo json_encode(['success' => true, 'comandas' => $comandas]);

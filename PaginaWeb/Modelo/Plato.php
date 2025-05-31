@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Clase Plato
  * Esta clase sirve para manejar todo lo relacionado a los platos: crearlos, editarlos, borrarlos y listarlos.

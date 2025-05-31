@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Este archivo se encarga de manejar el inicio de sesión de los usuarios.
  * Verifica el correo y la clave, y según el rol, los manda a la página que les pertenece.
@@ -10,7 +11,7 @@
 
 require_once '../Modelo/Conexion.php';
 require_once '../Modelo/Usuario.php';
-require_once 'validaciones.php';
+require_once '../Modelo/validaciones.php';
 
 session_start();
 
@@ -65,7 +66,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && filter_has_var(INPUT_POST, 'iniciar
                 exit();
             }
         } catch (Exception $e) {
-            echo "Error al iniciar sesión: " . $e->getMessage();
+            header("Location: /Vista/login.html?error=credenciales");
+            exit();
         }
     } else {
         header("Location: /Vista/login.html?error=incompleto");

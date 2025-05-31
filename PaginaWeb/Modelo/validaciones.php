@@ -3,7 +3,7 @@
 /**
  * Funciones de validación
  * Estas son las funciones para validar y limpiar los datos que entran al sistema.
- * Así es seguro de que no se meta nada raro..
+ * Así es seguro de que no se meta nada raro.
  * 
  * @author Milagros del Rosario Rubio Fiestas
  * @package Modelo

@@ -25,11 +25,14 @@ class Administrador
      */
     public function agregarPlato($nombre_plato, $tipo, $precio)
     {
+        $salida = false;
         $nombre_plato = validar_texto($nombre_plato);
         $tipo = validar_texto($tipo);
         $precio = validarPrecio($precio);
 
-        if (!$nombre_plato || !$tipo || $precio === false) return false;
+        if (!$nombre_plato || !$tipo || $precio === false) {
+            return $salida;
+        }
 
         try {
             $conexion = new Conexion("sabores_peruanos", "db", "root", "clave");
@@ -39,11 +42,12 @@ class Administrador
             $consulta->bindParam(":nombre", $nombre_plato);
             $consulta->bindParam(":tipo", $tipo);
             $consulta->bindParam(":precio", $precio);
-            return $consulta->execute();
+            $salida = $consulta->execute();
         } catch (PDOException $e) {
             error_log("Error al agregar plato: " . $e->getMessage());
-            return false;
+            $salida = false;
         }
+        return $salida;
     }
 
     /**
@@ -54,8 +58,11 @@ class Administrador
      */
     public function eliminarPlato($nombre_plato)
     {
+        $salida = false;
         $nombre_plato = validar_texto($nombre_plato);
-        if (!$nombre_plato) return false;
+        if (!$nombre_plato) {
+            return $salida;
+        }
 
         try {
             $conexion = new Conexion("sabores_peruanos", "db", "root", "clave");
@@ -64,11 +71,12 @@ class Administrador
             );
             $consulta->bindParam(":nombre", $nombre_plato);
             $consulta->execute();
-            return $consulta->rowCount() > 0;
+            $salida = $consulta->rowCount() > 0;
         } catch (PDOException $e) {
             error_log("Error al eliminar plato: " . $e->getMessage());
-            return false;
+            $salida = false;
         }
+        return $salida;
     }
 
     /**
@@ -81,11 +89,14 @@ class Administrador
      */
     public function editarPlato($nombre_plato, $tipo, $precio)
     {
+        $salida = false;
         $nombre_plato = validar_texto($nombre_plato);
         $tipo = validar_texto($tipo);
         $precio = validarPrecio($precio);
 
-        if (!$nombre_plato || !$tipo || $precio === false) return false;
+        if (!$nombre_plato || !$tipo || $precio === false) {
+            return $salida;
+        }
 
         try {
             $conexion = new Conexion("sabores_peruanos", "db", "root", "clave");
@@ -96,10 +107,11 @@ class Administrador
             $consulta->bindParam(":tipo", $tipo);
             $consulta->bindParam(":precio", $precio);
             $consulta->execute();
-            return $consulta->rowCount() > 0;
+            $salida = $consulta->rowCount() > 0;
         } catch (PDOException $e) {
             error_log("Error al editar plato: " . $e->getMessage());
-            return false;
+            $salida = false;
         }
+        return $salida;
     }
 }

@@ -11,7 +11,7 @@
 
 require_once '../Modelo/Conexion.php';
 require_once '../Modelo/Usuario.php';
-require_once 'validaciones.php';
+require_once '../Modelo/validaciones.php';
 
 // Verifica que se envió el formulario de registro
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && filter_has_var(INPUT_POST, 'registrar')) {
@@ -26,6 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && filter_has_var(INPUT_POST, 'registr
 
     // Verifica si algún campo está mal o vacío
     if (!$email || !$nombre || !$apellidos || !$clave || !$direccion) {
+        header('Content-Type: application/json');
         echo json_encode(["error" => "Datos inválidos o incompletos."]);
         exit;
     }
@@ -43,5 +44,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && filter_has_var(INPUT_POST, 'registr
         exit();
     }
 } else {
+    header('Content-Type: application/json');
     echo json_encode(["error" => "No se ha enviado el formulario correctamente."]);
 }

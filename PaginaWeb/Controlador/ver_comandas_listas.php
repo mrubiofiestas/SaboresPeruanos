@@ -15,7 +15,7 @@ header('Content-Type: application/json');
 if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'Administrador') {
     http_response_code(403);
     echo json_encode(['success' => false, 'error' => 'Acceso no autorizado']);
-    exit;
+    exit();
 }
 
 try {
@@ -23,16 +23,16 @@ try {
     $pdo = $conexion->getConexion();
 
     // Obtener todas las comandas con estado 'lista'
-    $stmt = $pdo->prepare("SELECT * FROM comandas WHERE estado = 'lista' ORDER BY fecha DESC");
-    $stmt->execute();
-    $comandas = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $consulta_listas = $pdo->prepare("SELECT * FROM comandas WHERE estado = 'lista' ORDER BY fecha DESC");
+    $consulta_listas->execute();
+    $comandas = $consulta_listas->fetchAll(PDO::FETCH_ASSOC);
 
     // Añadir los platos correspondientes a cada comanda
     foreach ($comandas as &$comanda) {
-        $stmtPlatos = $pdo->prepare("SELECT nombre_plato, cantidad FROM detalle_comanda WHERE id_comanda = :id");
-        $stmtPlatos->bindParam(':id', $comanda['id_comanda'], PDO::PARAM_INT);
-        $stmtPlatos->execute();
-        $comanda['platos'] = $stmtPlatos->fetchAll(PDO::FETCH_ASSOC);
+        $consulta_platos = $pdo->prepare("SELECT nombre_plato, cantidad FROM detalle_comanda WHERE id_comanda = :id");
+        $consulta_platos->bindParam(':id', $comanda['id_comanda'], PDO::PARAM_INT);
+        $consulta_platos->execute();
+        $comanda['platos'] = $consulta_platos->fetchAll(PDO::FETCH_ASSOC);
     }
 
     echo json_encode(['success' => true, 'comandas' => $comandas]);

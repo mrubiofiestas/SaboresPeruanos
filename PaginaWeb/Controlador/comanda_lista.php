@@ -24,9 +24,9 @@ if (filter_has_var(INPUT_POST, 'id')) {
         $conexion = new Conexion("sabores_peruanos", "db", "root", "clave");
         $pdo = $conexion->getConexion();
 
-        $stmt = $pdo->prepare("UPDATE comandas SET estado = 'lista' WHERE id_comanda = :id");
-        $stmt->bindParam(':id', $datos['id']);
-        $stmt->execute();
+        $consulta_comandas = $pdo->prepare("UPDATE comandas SET estado = 'lista' WHERE id_comanda = :id");
+        $consulta_comandas->bindParam(':id', $datos['id']);
+        $consulta_comandas->execute();
 
         echo json_encode(['exito' => true]);
     } catch (PDOException $e) {
